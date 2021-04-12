@@ -1,99 +1,134 @@
-class Node {
-  constructor(data, next, prev) {
-    this.data = data;
-    this.next = next;
-    this.prev = prev;
+/*
+Name : Shubham Sapkal
+Roll No. : 2012118
+Output : 
+--------original linked list--------
+After Create...
+1
+2
+3
+After Insert...
+10
+1
+20
+2
+3
+30
+After Delete...
+1
+20
+3
+*/
+class LinkedList
+{
+  constructor () 
+  {
+    this.dlist = null
+  }
+
+  create(ele)
+  {
+	var node=new newNode(ele)  
+    if(!this.dlist)
+    {
+      this.dlist=node
+    }
+    else
+    {
+      var temp=this.dlist
+      while(temp.next!=null)
+        temp=temp.next
+      temp.next=node
+	  node.prev=temp
+    }
+  }
+  insert(ele, pos)
+  {
+    var node=new newNode(ele)
+    if(pos==1)
+    {
+      node.next=this.dlist
+      this.dlist.prev=node
+      this.dlist=node
+    }
+    else
+    {
+      var temp=this.dlist
+      var i=2
+      while(i!=pos && temp.next!=null)
+      {
+        temp=temp.next
+        i=i+1 
+      }
+      node.next=temp.next
+      node.prev=temp
+      if(temp.next!=null)
+        temp.next.prev=node
+      temp.next=node
+    }
+  }
+  del(ele)
+  {
+    var temp=this.dlist
+  	while(temp.data!=ele && temp.next!=null)
+  	{
+  	 		temp=temp.next
+  	}
+  	if(temp.data==ele)
+  	{
+  	  if(temp.prev==null)
+  	  {
+  	    this.dlist=this.dlist.next
+  	    if(this.dlist!=null)
+  	      this.dlist.prev=null
+  	  }
+  	  else
+  	  {
+  	    if(temp.next!=null)//not last node
+  	    {
+  	      temp.next.prev=temp.prev
+  	    }
+  	    temp.prev.next=temp.next
+  	 }
+  	 temp=null
+  	}
+  	else
+  	    console.log("Element not present")
+  }
+  display()
+  {
+    
+      var temp=this.dlist
+      while(temp!=null)
+      {
+        console.log(temp.data)
+        temp=temp.next
+      }
+  }
+}
+class newNode 
+{
+  constructor (data, prev, next) 
+  {
+    this.data = data
+	  this.prev=null
+    this.next = null
   }
 }
 
-class DoublyLinkedList {
-  constructor() {
-    //create null initialized list
-    this.list = null;
-  }
-
-  insert = (data) => {
-    const node = new Node(data, null, null);
-    //check if it is first node to be added
-    if (this.list === null) {
-      this.list = node;
-      return;
-    }
-    let tmpList = this.list;
-    while(tmpList.next !== null) {
-      tmpList = tmpList.next;
-    }
-    node.prev = tmpList;
-    tmpList.next = node;
-    return;
-  };
-
-  delete = (data) => {
-    //check if list is not empty
-    if (this.list !== null) {
-      //check for first element
-      if (this.list.data === data) {
-        this.list = this.list.next;
-        return;
-      }
-      let tmpList = this.list;
-      let prevNode = null;
-      while (tmpList !== null && tmpList.data !== data) {
-        prevNode = tmpList;
-        tmpList = tmpList.next;
-      }
-      //check if match not found
-      if (tmpList === null) {
-        console.log(`data: ${data} not found.`);
-        return;
-      }
-      //data match found - remove the link.
-      //check if it's last node
-      if(tmpList.next !== null)
-        tmpList.next.prev = prevNode;
-      prevNode.next = tmpList.next;
-      return;
-    }
-  };
-
-  reverse = () => {
-    if(this.list !== null) {
-      let tmpList = this.list;
-      let prevNode = null;
-      let nxtNode = null;
-      while (tmpList !== null) {
-        nxtNode = tmpList.next;
-        tmpList.prev = nxtNode;
-        tmpList.next = prevNode;
-        prevNode = tmpList;
-        tmpList = nxtNode;
-      }
-      //now previous points to first node, assign it to main list
-      this.list = prevNode;
-    }
-  };
-
-  display = () => {
-    let tmpList = this.list;
-    //loop till last element...
-    while (tmpList !== null) {
-      console.log(tmpList.data);
-      console.log(`\u2193`); //optional (down arrow)
-      tmpList = tmpList.next;
-    }
-  };
-}
-
-//starting point of the script
-const main = () => {
-  const linkedList = new DoublyLinkedList();
-  linkedList.insert(1);
-  linkedList.insert(2);
-  linkedList.insert(3);
-  linkedList.insert(4);
-  linkedList.reverse();
-  linkedList.display();
-};
-
-//run the script
-main();
+const dlist = new LinkedList()
+dlist.create(1)
+dlist.create(2)
+dlist.create(3)
+console.log("After Create...")
+dlist.display()
+dlist.insert(10,1)
+dlist.insert(20,3)
+dlist.insert(30,500)
+console.log("After Insert...")
+dlist.display()
+dlist.del(2)
+dlist.del(10)
+dlist.del(30)
+console.log("After Delete...")
+dlist.display()
