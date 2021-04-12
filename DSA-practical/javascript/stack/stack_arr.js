@@ -1,3 +1,23 @@
+/*
+Name : Shubham Sapkal
+Roll No. : 2012118
+
+Output :
+1 added to stack
+2 added to stack
+3 added to stack
+4 added to stack
+5 added to stack
+5
+4
+3
+2
+1
+pop
+2
+1
+*/
+
 class Stack {
   constructor(capacity) {
     this.MAX_SIZE = capacity;
