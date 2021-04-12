@@ -1,3 +1,36 @@
+/*
+Name : Shubham Sapkal
+Roll No. : 2012118
+
+Output : 
+
+--------original linked list--------
+1
+↓
+2
+↓
+3
+↓
+4
+↓
+--------reversed linked list--------
+4
+↓
+3
+↓
+2
+↓
+1
+↓
+--------delete data 3--------
+4
+↓
+2
+↓
+1
+↓
+*/
+
 class Node {
   constructor(data, next) {
     this.data = data;
