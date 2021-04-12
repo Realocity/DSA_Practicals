@@ -1,81 +1,96 @@
-class Node {
-  constructor(data, next, prev) {
-    this.data = data;
-    this.next = next;
-    this.prev = prev;
+/*
+Name : Shubham Sapkal
+Roll No. 2012118
+
+Output : 
+
+After INSERT...
+10
+20
+30
+40
+50
+10
+After DELETE...
+20
+30
+40
+50
+20
+After DELETE...
+30
+40
+50
+*/
+class CQueue
+{
+  constructor () 
+  {
+    this.front = null
+    this.rear = null
   }
-}
 
-class QueueCircular {
-  constructor() {
-    //create null initialized list
-    this.list = null;
+  insert(ele)
+  {
+	    var node = new newNode(ele)
+	    if(this.front==null)							
+	      this.front=node
+	    else
+		    this.rear.next=node
+	    this.rear=node
+	    this.rear.next=this.front
   }
 
-  insert = (data) => {
-    const node = new Node(data, null, null);
-    //check if it is first node to be added
-    if (this.list === null) {
-      node.next = node;
-      this.list = node;
-      return;
-    }
-    let tmpList = this.list;
-    while (tmpList.next !== this.list) {
-      tmpList = tmpList.next;
-    }
-    node.prev = tmpList;
-    node.next = this.list;
-    tmpList.next = node;
-    return;
-  };
+  del()
+  {
+	    if(this.front==null)
+		    console.log("Queue Empty")
+	    else
+	    {
+	      var temp=this.front
+		    console.log(temp.data)
+		    this.front=this.front.next
+		    this.rear.next=this.front
+		    temp=null
+	    }
+		  if(this.front==null)
+			  console.log("Now Queue Empty")
 
-  delete = () => {
-    if (this.list !== null) {
-      const secNode = this.list.next;
-      //check if there is only one node
-      if(this.list.next === this.list) {
-          this.list = null;
-          return;
-      }
-      let tmpList = this.list;
-      while (tmpList.next !== this.list) {
-        tmpList = tmpList.next;
-      }
-      tmpList.next = this.list.next;
-      this.list = secNode;
-    } else {
-      console.log("queue is empty");
-    }
-  };
+  }
 
-  display = () => {
-    if (this.list !== null) {
-      let tmpList = this.list;
-      while (tmpList.next !== this.list) {
-        console.log(tmpList.data);
-        tmpList = tmpList.next;
-      }
-      console.log(tmpList.data);
-    } else {
-      console.log("queue is empty");
-    }
-  };
+  display()
+  {
+    
+      var temp=this.front
+      do
+      {
+        console.log(temp.data)
+        temp=temp.next
+      }while(temp!=this.front)
+  }
+  
 }
+  
+class newNode 
+{
+  constructor (data, next) 
+  {
+    this.data = data
+    this.next = null
+  }
 
-//starting point of the script
-const main = () => {
-  const queueCircular = new QueueCircular();
-  queueCircular.insert(1);
-  queueCircular.insert(2);
-  queueCircular.insert(3);
-  queueCircular.insert(4);
-  queueCircular.display();
-  console.log("2 node deleted");
-  queueCircular.delete();
-  queueCircular.delete();
-  queueCircular.display();
-};
-
-//run the script
-main();
+}
+const front = new CQueue()
+front.insert(10)
+front.insert(20)
+front.insert(30)
+front.insert(40)
+front.insert(50)
+console.log("After INSERT...")
+front.display()
+front.del()
+console.log("After DELETE...")
+front.display()
+front.del()
+console.log("After DELETE...")
+front.display()
