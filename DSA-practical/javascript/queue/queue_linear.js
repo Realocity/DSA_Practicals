@@ -1,3 +1,31 @@
+/*
+Name : Shubham Sapkal
+Roll No. : 2012118
+
+Output :
+
+1
+↓
+2
+↓
+3
+↓
+4
+↓
+delete one item
+2
+↓
+3
+↓
+4
+↓
+delete one item again
+3
+↓
+4
+↓
+*/
+
 class Node {
   constructor(data, next) {
     this.data = data;
