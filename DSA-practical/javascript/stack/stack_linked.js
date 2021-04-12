@@ -1,3 +1,20 @@
+/*
+Name : Shubham Sapkal
+Roll No. : 2012118
+
+Output :
+Push
+5
+4
+3
+2
+1
+pop
+3
+2
+1
+*/
+
 class Node {
   constructor(data, next) {
     this.data = data;
@@ -40,6 +57,7 @@ class Stack {
 //staring point of script
 const main = () => {
   const stack = new Stack(5);
+  console.log("Push");
   stack.push(1);
   stack.push(2);
   stack.push(3);
