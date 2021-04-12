@@ -1,3 +1,27 @@
+/*
+Name : Shubham Sapkal
+Roll No. : 2012118
+
+Output :
+After INSERT...
+40
+10
+30
+20
+50
+Deleted element is: 40
+After DELETE...
+10
+30
+20
+50
+Deleted element is: 10
+After DELETE...
+30
+20
+50
+*/
+
 class PQueue
 {
   constructor () 
