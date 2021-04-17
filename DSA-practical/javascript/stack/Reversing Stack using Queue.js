@@ -2,101 +2,84 @@
 Name : Shubham Sapkal
 Roll no. : 2012118
 
-Output :
+Q. Write a program to Reverse a string using stack.
 
-After PUSH...
-50
-40
-30
-20
-10
-After adding to Queue...
-50
-40
-30
-20
-10
-After REVERSE...
-10
-20
-30
-40
-50
+Output :
+Stack Contains...
+K
+C
+I
+W
+ 
+N
+H
+O
+J
+Reverse String is...
+KCIW NHOJ
 */
 
-class Queue
+//Reverse String using Stack
+class Stack
 {
-  constructor () 
+  constructor () //constructor 
   {
-    this.front = null
-    this.rear = null
+    this.top = null
   }
 
-  insert(ele)
+  push(ele) //Adds an element to the stack.
   {
-	    var node = new newNode(ele)
-	    if(this.front==null)							
-	      this.front=node
-	    else
-		    this.rear.next=node
-	    this.rear=node
+	  var node=new newNode(ele)
+	  node.next=this.top
+	  this.top=node
   }
-  //Get from queue and push on stack
-  push_stack()
+
+  pop() //Removes and returns the topmost element of the stack.
   {
-    var temp=this.front
-	  while(temp!=null)
-	  {
-	    top.push(temp.data)
-  	  temp=temp.next
-  	  this.front=this.front.next
-	   }
+	  var temp=this.top
+	  var char=temp.data
+	  this.top=this.top.next
+	  temp=null
+	  return char  
   }
+  reverse_string(str)
+  {
+     var i = 0
+     var reversestr = ""
+     //Adds all the characters to the stack.
+     while (i != str.length) 
+     {
+         top.push(str.charAt(i))
+         i++
+     }
+     console.log("Stack Contains...")
+     top.display()
+     var temp=this.top
+     //Creates a reversed string by popping the stack.
+     while (temp!=null) 
+     {
+        var char
+        char=top.pop()
+        reversestr += char
+        temp=this.top
+     }
+     console.log("Reverse String is...")
+     console.log(reversestr)
+  }
+
   display()
   {
-      var temp=this.front
+    
+      var temp=this.top
       while(temp!=null)
       {
         console.log(temp.data)
         temp=temp.next
       }
   }
+  
 }
-class Stack
-{
-  constructor () 
-  {
-    this.top = null
-  }
-
-  push(ele)
-  {
-	  var node=new newNode(ele)
-	  node.next=this.top
-	  this.top=node
-  }
-  //pop from stack and add to queue
-  pop_add_queue()
-  {
-	  var temp=this.top
-	  while(temp!=null)
-	  {
-	    front.insert(temp.data)
-  	  temp=temp.next
-  	}
-    this.top=null
-  }
-    display()
-    {
-        var temp=this.top
-        while(temp!=null)
-        {
-          console.log(temp.data)
-          temp=temp.next
-        }
-    }
-}
-
+  
 class newNode 
 {
   constructor (data, next) 
@@ -106,20 +89,6 @@ class newNode
   }
 
 }
-
 const top = new Stack()
-const front = new Queue()
-top.push(10)
-top.push(20)
-top.push(30)
-top.push(40)
-top.push(50)
-console.log("After PUSH...")
-top.display()
-top.pop_add_queue()
-console.log("After adding to Queue...")
-front.display()
-front.push_stack()
-console.log("After REVERSE...")
-top.display()
+top.reverse_string("JOHN WICK")
 
