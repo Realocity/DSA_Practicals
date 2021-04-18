@@ -6,24 +6,9 @@ Q. Write a program to reverse stack using queue.
 
 Output :
 push() — Adds an element.
+[ 19, 28, 37, 46 ]
 Display elements
-51
-41
-31
-21
-11
-adding to Queue...
-51
-41
-31
-21
-11
-REVERSE...
-11
-21
-31
-41
-51
+[ 46, 37, 28, 19 ]
 */
 class Stack {
   top = -1;
