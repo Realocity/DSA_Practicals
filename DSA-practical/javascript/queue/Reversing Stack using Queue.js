@@ -25,102 +25,83 @@ REVERSE...
 41
 51
 */
-class Queue
-{
-  constructor () // Constructor 
-  {
-    this.front = null
-    this.rear = null
+class Stack {
+  top = -1;
+  stack = [];
+
+  push(ele) {
+    this.top += 1;
+    this.stack[this.top] = ele;
   }
 
-  insert(ele)
-  {
-	    var node = new newNode(ele)
-	    if(this.front==null)							
-	      this.front=node
-	    else
-		    this.rear.next=node
-	    this.rear=node
-  }
-  //Get from queue and push on stack
-  push_stack()
-  {
-    var temp=this.front
-	  while(temp!=null)
-	  {
-	    top.push(temp.data)
-  	  temp=temp.next
-  	  this.front=this.front.next
-	   }
-  }
-  display()
-  {
-      var temp=this.front
-      while(temp!=null)
-      {
-        console.log(temp.data)
-        temp=temp.next
-      }
-  }
-}
-class Stack
-{
-  constructor () 
-  {
-    this.top = null
-  }
-
-  push(ele)
-  {
-	  var node=new newNode(ele)
-	  node.next=this.top
-	  this.top=node
-  }
-  //pop from stack and add to queue
-  pop_add_queue()
-  {
-	  var temp=this.top
-	  while(temp!=null)
-	  {
-	    front.insert(temp.data)
-  	  temp=temp.next
-  	}
-    this.top=null
-  }
-    display()
-    {
-        var temp=this.top
-        while(temp!=null)
-        {
-          console.log(temp.data)
-          temp=temp.next
-        }
+  pop() {
+    if (!this.isEmpty()) {
+      const ele = this.stack[this.top];
+      this.top -= 1;
+      return ele;
     }
-}
-
-class newNode 
-{
-  constructor (data, next) 
-  {
-    this.data = data
-    this.next = null
   }
 
+  isEmpty() {
+    return this.top === -1;
+  }
+
+  display() {
+    if (!this.isEmpty()) {
+      console.log(this.stack);
+    }
+  }
 }
 
-const top = new Stack()
-const front = new Queue()
-console.log("push() — Adds an element.")
-top.push(11)
-top.push(21)
-top.push(31)
-top.push(41)
-top.push(51)
-console.log("Display elements")
-top.display()
-top.pop_add_queue()
-console.log("adding to Queue...")
-front.display()
-front.push_stack()
-console.log("REVERSE...")
-top.display()
+class Queue {
+  front = 0;
+  rear = 0;
+  queue = [];
+
+  push(ele) {
+    this.queue[this.rear] = ele;
+    this.rear += 1;
+  }
+
+  pop() {
+    if (!this.isEmpty()) {
+      //shift all elements one index left
+      const ele = this.queue[this.front];
+      for (let i = 0; i < this.rear - 1; i++) {
+        this.queue[i] = this.queue[i + 1];
+      }
+      this.rear -= 1;
+      return ele;
+    }
+  }
+
+  isEmpty() {
+    return this.front === this.rear;
+  }
+
+  display() {
+    if (!this.isEmpty()) {
+      console.log(this.queue);
+    }
+  }
+}
+
+function reverseStack() {
+  const stack = new Stack();
+  stack.push(19);
+  stack.push(28);
+  stack.push(37);
+  stack.push(46);
+  stack.display();
+  ////////////////
+  const queue = new Queue();
+  while (!stack.isEmpty()) {
+    queue.push(stack.pop());
+  }
+  while (!queue.isEmpty()) {
+    stack.push(queue.pop());
+  }
+  stack.display();
+}
+
+reverseStack();
