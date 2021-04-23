@@ -28,13 +28,13 @@ Create, Insert, Delete, Display](https://github.com/Realocity/DSA_Practicals/blo
 
 - 10. [Implementation of reverse stack using queue](https://github.com/Realocity/DSA_Practicals/blob/main/javascript/queue/Reversing%20Stack%20using%20Queue.js)
 
-- 11. [Implementation of implement binary search tree with its operations](https://github.com/Realocity/DSA_Practicals/blob/main/javascript/Binary%20Search%20Tree/BST.js)
+- 11. [Implementation of binary search tree with its operations](https://github.com/Realocity/DSA_Practicals/blob/main/javascript/Binary%20Search%20Tree/BST.js)
 
-- 12. [Implementation of implement graph traversals](#)
+- 12. [Implementation of graph traversals](https://github.com/Realocity/DSA_Practicals/blob/main/javascript/Graph/graph%20traversals.js)
 
-- 13. [Implementation of implement linear search (Brute Force)](#)
+- 13. [Implementation of linear search (Brute Force)](#)
 
-- 14. [Implementation of implement binary search (Divide and Conquer)](#)
+- 14. [Implementation of binary search (Divide and Conquer)](#)
 
 </details>
 
