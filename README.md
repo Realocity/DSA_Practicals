@@ -34,7 +34,7 @@ Create, Insert, Delete, Display](https://github.com/Realocity/DSA_Practicals/blo
 
 - 13. [Implementation of linear search (Brute Force)](#)
 
-- 14. [Implementation of binary search (Divide and Conquer)](#)
+- 14. [Implementation of binary search (Divide and Conquer)](https://github.com/Realocity/DSA_Practicals/blob/main/javascript/Divide%20and%20Conquer/Binary%20Search.js)
 
 </details>
 
