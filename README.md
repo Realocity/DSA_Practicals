@@ -32,7 +32,7 @@ Create, Insert, Delete, Display](https://github.com/Realocity/DSA_Practicals/blo
 
 - 12. [Implementation of graph traversals](https://github.com/Realocity/DSA_Practicals/blob/main/javascript/Graph/graph%20traversals.js)
 
-- 13. [Implementation of linear search (Brute Force)](#)
+- 13. [Implementation of linear search (Brute Force)](https://github.com/Realocity/DSA_Practicals/blob/main/javascript/Divide%20and%20Conquer/Linear%20Search.js)
 
 - 14. [Implementation of binary search (Divide and Conquer)](https://github.com/Realocity/DSA_Practicals/blob/main/javascript/Divide%20and%20Conquer/Binary%20Search.js)
 
