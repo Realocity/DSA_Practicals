@@ -1,3 +1,11 @@
+/*
+Name : Shubham Sapkal
+Roll No. : 2012118
+
+Output :
+12
+10
+*/
 function binary_Search(items, value){
     var firstIndex  = 0,
         lastIndex   = items.length - 1,
